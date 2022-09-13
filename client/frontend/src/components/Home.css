@@ -1,0 +1,30 @@
+.mainDiv {
+  background-image: linear-gradient(#8360C3, #2EBF91);
+  width: 100vw;
+  height :  100vh;
+  position: relative;
+}
+.homeDiv {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right : 0;
+  margin: auto;
+  width : 50%;
+  height : 70%;
+  font-weight: 500;
+  border: 0.5px solid ghostwhite;
+  padding: 1em;
+  background-color: aliceblue;
+  border-radius: 10%;
+}
+
+.listdiv {
+  border-bottom : 1px solid black;
+  border-radius: 8%;
+  margin: auto;
+  margin-bottom: 0.3em;
+  width: 70%;
+  height : 5%
+}
