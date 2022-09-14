@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-import SendIcon from '@mui/icons-material/Send'
 import axios from 'axios'
-import { RiDeleteBinLine, RiTodoLine } from 'react-icons/ri'
+import { RiDeleteBinLine } from 'react-icons/ri'
+import { AiOutlinePlusCircle } from 'react-icons/ai'
+import Card from 'react-bootstrap/Card'
 import './Home.css'
 
 function Home() {
@@ -36,50 +37,53 @@ function Home() {
   }
   return (
     <div className="mainDiv">
-      <div className="homeDiv">
+      <Card className='upperCard'>
         <TextField
           id="outlined-basic"
-          label="Enter your task"
+          label="Add Todo"
           variant="outlined"
           value={todo}
           onChange={e => {
             setTodo(e.target.value)
           }}
+          style={{ width: '60%' }}
         />
         &nbsp;&nbsp;
         <Button
           variant="contained"
           size="large"
-          endIcon={<SendIcon />}
+          endIcon={<AiOutlinePlusCircle />}
           className="sendButton"
           onClick={e => handleTask(e)}
         >
-          Send
+          Add
         </Button>
-        <br />
-        <br />
-        <>
-          {allTodo.length > 0 ? (
-            <>
-              {allTodo.map(todoo => {
-                return (
-                  <div className="listdiv" key={todoo.id}>
-                    <RiTodoLine style={{ float: 'left' }} />
-                    {todoo.todo}{' '}
+      </Card>
+      <br />
+      <div className='container d-flex flex-column'>
+        {allTodo.length > 0 ? (
+          <>
+            {allTodo.map(todoo => {
+              return (
+                <Card className="listCard" key={todoo.id}>
+                  <Card.Body className='listcardBody'>
+                    {/* <RiTodoLine style={{ float: 'left' }} /> */}
+                    {todoo.todo}
+                      
                     <Button
                       onClick={() => deleteTodo(todoo.id)}
                       style={{ color: 'black', float: 'right' }}
                     >
-                      <RiDeleteBinLine />
+                      <RiDeleteBinLine style={{fontSize:'25px'}} />
                     </Button>
-                  </div>
-                )
-              })}
-            </>
-          ) : (
-            <h3>no todo listed</h3>
-          )}
-        </>
+                  </Card.Body>
+                </Card>
+              )
+            })}
+          </>
+        ) : (
+          <h3>no todo listed</h3>
+        )}
       </div>
     </div>
   )

@@ -1,30 +1,46 @@
-.mainDiv {
+/* .mainDiv {
   background-image: linear-gradient(#8360C3, #2EBF91);
   width: 100vw;
   height :  100vh;
   position: relative;
-}
-.homeDiv {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right : 0;
-  margin: auto;
-  width : 50%;
-  height : 70%;
-  font-weight: 500;
-  border: 0.5px solid ghostwhite;
-  padding: 1em;
+} */
+.upperCard {
+  height: 30vh;
+  width: 100vw;
   background-color: aliceblue;
-  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upperCard TextField {
+  width: 60%;
 }
 
-.listdiv {
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-content: space-between;
+  row-gap: 10px;
+  font-size: 20px;
+  /* background-color: black; */
+}
+.listCard {
+  width: 60%;
+  height: 3em;
+  border: .5px solid brown;
+}
+.listcardBody {
+  padding: .8rem;
+  text-align: left;
+}
+
+/* .listCard {
   border-bottom : 1px solid black;
   border-radius: 8%;
   margin: auto;
   margin-bottom: 0.3em;
   width: 70%;
   height : 5%
-}
+} */

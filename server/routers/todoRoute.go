@@ -18,6 +18,7 @@ func RegisterRoutes() *gin.Engine {
 
 	router.GET("/todo", getTodo)
 	router.POST("/todo", postTodo)
+	router.PUT("/todo/:id", updateTodo)
 	router.DELETE("/todo/:id", deleteTodo)
 
 	return router
@@ -39,6 +40,20 @@ func postTodo(c *gin.Context) {
 	models.DB.Create(&listItem)
 
 	getTodo(c)
+}
+
+func updateTodo(c *gin.Context) {
+	var update CreateTodo
+	var database models.Todo
+	if err := c.ShouldBindJSON(&update); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	if err := models.DB.Model(&database).Where("id = ?", c.Param("id")).Update("todo", &update.Todo).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+		return
+	}
+	c.IndentedJSON(http.StatusOK, gin.H{"message": "update sucessful"})
 }
 
 func deleteTodo(c *gin.Context) {
