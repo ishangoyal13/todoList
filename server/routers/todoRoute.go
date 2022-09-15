@@ -53,7 +53,7 @@ func updateTodo(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
 		return
 	}
-	c.IndentedJSON(http.StatusOK, gin.H{"message": "update sucessful"})
+	getTodo(c)
 }
 
 func deleteTodo(c *gin.Context) {
