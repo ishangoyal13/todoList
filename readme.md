@@ -14,6 +14,8 @@
         `go run .`
 - Start the npm  
         `npm start`
+
+#### Open issue for any query in the code :)
       
 ![readme](./client//frontend/src/assests/ss.png)
 
