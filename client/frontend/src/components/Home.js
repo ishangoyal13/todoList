@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import { styled } from '@mui/material/styles'
 import axios from 'axios'
 import { RiDeleteBinLine } from 'react-icons/ri'
 import { AiOutlinePlusCircle } from 'react-icons/ai'
@@ -76,7 +77,7 @@ function Home() {
   return (
     <div className="mainDiv">
       <Card className="upperCard">
-        <TextField
+        <CssTextField
           id="outlined-basic"
           label="Add Todo"
           variant="outlined"
@@ -85,6 +86,7 @@ function Home() {
             setTodo(e.target.value)
           }}
           style={{ width: '60%' }}
+          sx={{ input: { color: 'white' } }}
         />
         &nbsp;&nbsp;
         <Button
@@ -154,5 +156,34 @@ function Home() {
     </div>
   )
 }
+
+const CssTextField = styled(TextField)({
+  '& label.Mui-focused': {
+    color: 'aliceblue',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'red',
+  },
+  '& label': {
+    color: 'black',
+  },
+  '& multilineColor': {
+    color :  'white'
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'blue',
+      backgroundColor : 'aliceblue'
+    },
+    '&:hover fieldset': {
+      borderColor: 'aliceblue',
+      backgroundColor : 'none'
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'aliceblue',
+      backgroundColor : '#11ffee00'
+    }
+  },
+})
 
 export default Home
